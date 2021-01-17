@@ -28,6 +28,7 @@ function setup() {
 	 box2= new Box (290,620,20,100);
 	 box3= new Box(400,650,200,20);
 	
+	 paper=new Paper(200,50,50);
 	
 
 	Engine.run(engine);
@@ -41,11 +42,17 @@ function draw() {
   box1.display();
   box2.display();
   box3.display();
-  
+  paper.display();
   
   drawSprites();
  
 }
 
+function keyPressed(){
+	if(keyCode === UP_ARROW){
+		Matter.Body.applyForce(paper.body,paper.body.position,{x:100,y:-100});
+	}
+
+}
 
 
